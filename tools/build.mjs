@@ -248,7 +248,7 @@ ${hallEl(`${n}/${TOTAL}`, b.kind)}
 <main id="main">
   <section class="chero" aria-labelledby="case-title" ${themeAttrs(b.theme, `${n}/${TOTAL}|${b.kind}`)}>
     <div class="chero__cover" style="background:${b.theme.bg}">${b.cover()}</div>
-    <div class="chero__plate">
+    <div class="chero__plate${b.plateInvert ? ' chero__plate--inv' : ''}">
       <p class="label"><span>Зал ${n} / ${TOTAL}</span><span>${esc(b.kind)}</span><span>${esc(b.city)}</span><span>${b.year}</span></p>
       <h1 class="chero__title ${hc}" id="case-title">${esc(b.name)}</h1>
       <p class="chero__lead">${esc(b.lead)}</p>

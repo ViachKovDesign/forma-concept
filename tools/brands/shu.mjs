@@ -122,6 +122,7 @@ export default {
   slug: 'shu', name: 'Шу!', kind: 'Кондитерская', city: 'Нижний Новгород', year: 2025,
   headFont: ['w', 800], fontName: 'Unbounded',
   theme: { bg: '#1FA3A0', ink: '#061514', muted: '#0E2A29' },
+  plateInvert: true,
   curtain: 'down',
   scope: 'Логотип, карта начинок, коробки, вывеска',
   lead: 'Эклеры и заварные пирожные с двенадцатью начинками. Половина покупок — на подарок.',

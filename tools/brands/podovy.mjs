@@ -146,6 +146,7 @@ export default {
   slug: 'podovy', name: 'Подовый', kind: 'Пекарня', city: 'Пермь', year: 2025,
   headFont: ['s', 600, false], fontClass: 'ff-serif', fontName: 'Cormorant',
   theme: { bg: '#2B48A3', ink: '#F4F2EC', muted: '#CDD5EE' },
+  plateInvert: true,
   curtain: 'up',
   scope: 'Айдентика, меню, упаковка, вывеска',
   lead: 'Хлеб на закваске на первом этаже панельного дома в Мотовилихе.',

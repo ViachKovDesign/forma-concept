@@ -144,6 +144,7 @@ export default {
   slug: 'tamada-i-syn', name: 'Тамада и сын', kind: 'Грузинский ресторан', city: 'Казань', year: 2023,
   headFont: ['s', 500, true], fontName: 'Cormorant Italic',
   theme: { bg: '#8F1D2C', ink: '#F7EEE8', muted: '#E3C2BE' },
+  plateInvert: true,
   curtain: 'center',
   scope: 'Айдентика, меню, упаковка, фасад',
   lead: 'Семейный ресторан на 120 мест: отец ведёт зал, сын стоит на кухне.',

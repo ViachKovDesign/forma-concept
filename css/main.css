@@ -399,3 +399,11 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 @media print { .site-header, .hall, .cursor { display: none; } }
 .frame__inner--static { position: relative; inset: auto; }
+.field input::placeholder, .field textarea::placeholder { color: var(--muted); opacity: 1; }
+@media (max-width: 520px) {
+  .site-header { background: var(--bg); transition: background-color .9s var(--ease); }
+  .hall { padding: 6px 9px; font-size: .6875rem; }
+  .hall b { font-size: .875rem; }
+}
+.chero__plate--inv { background: var(--ink); color: var(--bg); --muted: color-mix(in srgb, var(--bg) 88%, var(--ink)); }
+.chero__plate--inv :focus-visible { outline-color: var(--bg); }

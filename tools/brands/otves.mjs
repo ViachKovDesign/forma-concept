@@ -26,8 +26,8 @@ const cover = () => svg({
   desc: 'Лаймовый отвес на длинной нити опускается к линии нулевого уровня на графитовом фоне, по краям — шкалы, как на линейке.',
   body: `<rect width="1600" height="1000" fill="${G}"/>` +
     layer(-0.3, ticks(330, 0, 1000, 20, L) + ticks(1270, 0, 1000, 20, L, 5, -1) + `<line x1="330" y1="0" x2="330" y2="1000" stroke="${L}" stroke-width="2"/><line x1="1270" y1="0" x2="1270" y2="1000" stroke="${L}" stroke-width="2"/>`) +
-    layer(-0.12, `<line x1="0" y1="780" x2="1600" y2="780" stroke="${W}" stroke-width="2" stroke-dasharray="10 10"/>` + text(1250, 766, '±0,000', { f: 'w', size: 22, weight: 500, fill: W, anchor: 'end' }) + `<circle cx="800" cy="780" r="26" fill="none" stroke="${W}" stroke-width="2"/>`) +
-    layer(0.25, bob(800, -60, 1.7, { len: 280, lw: 4 })) +
+    layer(-0.12, `<line x1="0" y1="780" x2="1600" y2="780" stroke="${W}" stroke-width="2" stroke-dasharray="10 10"/>` + text(1250, 766, '±0,000', { f: 'w', size: 22, weight: 500, fill: W, anchor: 'end' }) + `<circle cx="1040" cy="780" r="26" fill="none" stroke="${W}" stroke-width="2"/>`) +
+    layer(0.25, bob(1040, -60, 1.7, { len: 330, lw: 4 })) +
     layer(0.05, text(400, 330, 'кофе', { f: 'w', size: 80, weight: 300, fill: W }) + text(400, 420, 'за 40 сек', { f: 'w', size: 80, weight: 800, fill: L })),
 });
 
