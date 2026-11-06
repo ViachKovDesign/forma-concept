@@ -13,8 +13,8 @@ for (const name of optional) {
 const brands = brandsAll;
 const TOTAL = String(brands.length).padStart(2, '0');
 
-// Адрес, по которому сайт будет опубликован (нужен для og:image). Поменяйте при публикации.
-const SITE_URL = 'https://viachkovdesign.github.io/forma/';
+// Адрес опубликованного сайта (canonical, og:url, og:image). Должен заканчиваться на «/».
+const SITE_URL = 'https://viachkovdesign.github.io/forma-concept/';
 const BASE = { bg: '#D9D6D0', ink: '#1C1B19', muted: '#55524C' };
 const DARK = { bg: '#1C1B19', ink: '#E4E1DB', muted: '#A7A39B' };
 
@@ -34,7 +34,7 @@ const cssSource = readFileSync('css/main.css', 'utf8')
   .replace(/;}/g, '}');
 const inlineCss = (prefix) => cssSource.replaceAll('../vendor/', prefix + 'vendor/');
 
-function head({ title, desc, prefix, og, themeColor, htmlBg }) {
+function head({ title, desc, prefix, og, path, themeColor, htmlBg }) {
   return `<!doctype html>
 <html lang="ru" class="no-js"${htmlBg ? ` style="background:${htmlBg}"` : ''}>
 <head>
@@ -43,7 +43,9 @@ function head({ title, desc, prefix, og, themeColor, htmlBg }) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="theme-color" content="${themeColor}">
+<link rel="canonical" href="${SITE_URL}${path}">
 <meta property="og:type" content="website">
+<meta property="og:url" content="${SITE_URL}${path}">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="ФОРМА — концепт-проект">
 <meta property="og:title" content="${esc(title)}">
@@ -141,7 +143,7 @@ const steps = [
 function indexPage() {
   const plan = brands.map((b, i) => `<li><a href="#case-${b.slug}"><span class="plan__n">${pad(i + 1)}</span><span class="plan__name">${esc(b.name)}</span><span class="plan__kind">${esc(b.kind)}, ${esc(b.city)}</span></a></li>`).join('');
   const chars = [...'ФОРМА'].map((c) => `<span class="hero__char">${c}</span>`).join('');
-  return `${head({ title: 'ФОРМА — бюро брендинга ресторанов, кафе и баров (концепт)', desc: 'Концепт-портфолио вымышленного бюро «ФОРМА»: айдентика, меню, упаковка и вывески для пекарен, баров, кофеен и ресторанов. Шесть залов-кейсов.', prefix: '', og: 'img/og.png', themeColor: BASE.bg })}
+  return `${head({ title: 'ФОРМА — бюро брендинга ресторанов, кафе и баров (концепт)', desc: 'Концепт-портфолио вымышленного бюро «ФОРМА»: айдентика, меню, упаковка и вывески для пекарен, баров, кофеен и ресторанов. Шесть залов-кейсов.', prefix: '', og: 'img/og.png', path: '', themeColor: BASE.bg })}
 <body>
 ${header('', true)}
 ${hallEl('Вход', 'вестибюль')}
@@ -249,7 +251,7 @@ function casePage(b, i) {
     </figure>`;
   }).join('\n');
   const desc = `${b.kind} «${b.name}», ${b.city}, ${b.year}. ${b.task.split('. ')[0]}. Концепт-кейс бюро «ФОРМА».`;
-  return `${head({ title: `${b.kind} «${b.name}» — кейс бюро ФОРМА (концепт)`, desc, prefix: '../', og: `img/og-${b.slug}.png`, themeColor: b.theme.bg, htmlBg: b.theme.bg })}
+  return `${head({ title: `${b.kind} «${b.name}» — кейс бюро ФОРМА (концепт)`, desc, prefix: '../', og: `img/og-${b.slug}.png`, path: `cases/${b.slug}.html`, themeColor: b.theme.bg, htmlBg: b.theme.bg })}
 <body>
 ${header('../', false)}
 ${hallEl(`${n}/${TOTAL}`, b.kind)}

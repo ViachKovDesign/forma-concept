@@ -84,4 +84,4 @@
 
 ## Как опубликовать
 
-Подробно — в README.md. Коротко: Settings → Pages → Deploy from a branch → ветка с сайтом, папка `/ (root)` → Save. Затем поменять `SITE_URL` в `tools/build.mjs` на итоговый адрес и выполнить `npm run build` (нужно только для OG-картинок в превью ссылок).
+Подробно — в README.md. Коротко: Settings → Pages → Deploy from a branch → ветка с сайтом, папка `/ (root)` → Save. Адрес `https://viachkovdesign.github.io/forma-concept/` уже прописан в `SITE_URL` (`tools/build.mjs`); если он изменится — поправить строку и выполнить `npm run build`.
