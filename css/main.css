@@ -136,7 +136,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* ---------- Hero ---------- */
 .hero { min-height: 100svh; padding-top: 96px; padding-bottom: 72px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; position: relative; }
 .hero__top { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; }
-.hero__label { max-width: 24em; }
+.hero__label { max-width: 32em; }
 .hero__title { font: 800 clamp(3.6rem, 17.6vw, 21rem)/.8 var(--f-wide); letter-spacing: -.055em; margin-left: -.04em; white-space: nowrap; display: flex; }
 .hero__char { display: inline-block; will-change: transform; }
 .js:not(.rm) .hero__char { transform: translateY(18%); }

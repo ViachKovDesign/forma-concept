@@ -148,7 +148,7 @@ ${hallEl('Вход', 'вестибюль')}
 <main id="main">
   <section class="hero wrap" aria-labelledby="hero-title" ${themeAttrs(BASE, 'Вход|вестибюль')}>
     <div class="hero__top">
-      <p class="hero__label label">Бюро брендинга ресторанов, кафе и баров<br>Екатеринбург · с 2016 года · 64 заведения</p>
+      <p class="hero__label label">Бюро брендинга ресторанов, кафе и&nbsp;баров.<br>Екатеринбург, с&nbsp;2016 года, 64&nbsp;заведения</p>
       <p class="label">Экспозиция: 6 залов</p>
     </div>
     <h1 class="hero__title" id="hero-title" aria-label="ФОРМА — бюро брендинга заведений">${chars}</h1>
