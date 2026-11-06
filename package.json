@@ -1,0 +1,21 @@
+{
+  "name": "forma-concept",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Концепт-сайт бюро брендинга заведений «ФОРМА». Статический сайт без сборщика.",
+  "scripts": {
+    "vendor": "node tools/vendor.mjs",
+    "build": "node tools/build.mjs",
+    "shots": "node tools/shots.mjs",
+    "og": "node tools/og.mjs",
+    "serve": "python3 -m http.server 8080"
+  },
+  "devDependencies": {
+    "gsap": "3.15.1",
+    "lenis": "1.3.27",
+    "@fontsource-variable/unbounded": "5.3.0",
+    "@fontsource-variable/cormorant": "5.3.0",
+    "@fontsource-variable/golos-text": "5.3.0",
+    "@fontsource/fira-sans-extra-condensed": "5.3.0"
+  }
+}
