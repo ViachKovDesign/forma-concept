@@ -1,7 +1,7 @@
 // Генератор статических страниц: node tools/build.mjs
 // Собирает /index.html и /cases/*.html из данных брендов в tools/brands.
 // Сайт после сборки — обычный HTML/CSS/JS, без сборщика и сервера.
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { esc, paletteSheet, resetUid } from './lib.mjs';
 import podovy from './brands/podovy.mjs';
 
@@ -25,6 +25,15 @@ const themeAttrs = (t, hall) => `data-bg="${t.bg}" data-ink="${t.ink}" data-mute
 const ARROW = '<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 10h13M11 4.5 16.5 10 11 15.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>';
 const MARK = '<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="1.5" y="1.5" width="29" height="29" fill="none" stroke="currentColor" stroke-width="3"/><path d="M9 30V16a7 7 0 0 1 14 0v14" fill="currentColor"/></svg>';
 
+// CSS встраивается в страницу: так первый экран рисуется без лишнего запроса.
+// Исходник стилей — css/main.css (правьте его и пересобирайте).
+const cssSource = readFileSync('css/main.css', 'utf8')
+  .replace(/\/\*[\s\S]*?\*\//g, '')
+  .replace(/\s+/g, ' ')
+  .replace(/\s*([{};,>])\s*/g, '$1')
+  .replace(/;}/g, '}');
+const inlineCss = (prefix) => cssSource.replaceAll('../vendor/', prefix + 'vendor/');
+
 function head({ title, desc, prefix, og, themeColor, htmlBg }) {
   return `<!doctype html>
 <html lang="ru" class="no-js"${htmlBg ? ` style="background:${htmlBg}"` : ''}>
@@ -34,7 +43,6 @@ function head({ title, desc, prefix, og, themeColor, htmlBg }) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="theme-color" content="${themeColor}">
-<meta name="robots" content="noindex">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="ФОРМА — концепт-проект">
@@ -50,7 +58,7 @@ function head({ title, desc, prefix, og, themeColor, htmlBg }) {
 <link rel="apple-touch-icon" href="${prefix}img/apple-touch-icon.png">
 <link rel="preload" href="${prefix}vendor/fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="${prefix}vendor/fonts/golos-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="${prefix}css/main.css">
+<style>${inlineCss(prefix)}</style>
 <script>(function(h){h.className='js'+(matchMedia('(prefers-reduced-motion: reduce)').matches?' rm':'');setTimeout(function(){if(!window.__formaReady)h.classList.add('js-fail')},2500)})(document.documentElement)</script>
 <script defer src="${prefix}vendor/gsap-3.15.1/gsap.min.js"></script>
 <script defer src="${prefix}vendor/gsap-3.15.1/ScrollTrigger.min.js"></script>

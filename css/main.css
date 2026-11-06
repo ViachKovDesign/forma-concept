@@ -407,3 +407,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .chero__plate--inv { background: var(--ink); color: var(--bg); --muted: color-mix(in srgb, var(--bg) 88%, var(--ink)); }
 .chero__plate--inv :focus-visible { outline-color: var(--bg); }
+/* Курсор виден на любом фоне: инверсия того, что под ним */
+.has-cursor .cursor { background: #fff; color: #000; mix-blend-mode: difference; }
+/* Счётчик залов на десктопе — вертикальная этикетка в правом поле */
+@media (min-width: 901px) {
+  .hall { writing-mode: vertical-rl; transform: rotate(180deg); right: 10px; bottom: 16px; padding: 12px 7px; }
+  .hall b { display: inline-block; }
+}

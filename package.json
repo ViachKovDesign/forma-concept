@@ -4,7 +4,7 @@
   "private": true,
   "description": "Концепт-сайт бюро брендинга заведений «ФОРМА». Статический сайт без сборщика.",
   "scripts": {
-    "vendor": "node tools/vendor.mjs",
+    "vendor": "node tools/vendor.mjs && python3 tools/subset-fonts.py",
     "build": "node tools/build.mjs",
     "shots": "node tools/shots.mjs",
     "og": "node tools/og.mjs",
